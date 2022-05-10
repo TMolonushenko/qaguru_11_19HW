@@ -16,7 +16,7 @@ public class SpecDemoWebShop {
                     .contentType("application/x-www-form-urlencoded; charset=UTF-8");
 
     public static ResponseSpecification responseSpecD = new ResponseSpecBuilder()
-             .expectBody(containsString("success"))
-           // .expectStatusCode(200)
+            .expectBody(containsString("success"))
+            // .expectStatusCode(200)
             .build();
 }

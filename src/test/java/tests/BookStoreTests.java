@@ -129,9 +129,8 @@ public class BookStoreTests {
         String data = "{ \"userName\": \"Alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
 
-
         given()
-                .filters(withCustomTemplates())//это лог именно в алюр отчет
+                .filter(withCustomTemplates())//это лог именно в алюр отчет
                 .body(data)
                 .contentType(JSON)
                 .log().uri()//эти логи обеспечивают логирование к консоль
@@ -152,9 +151,8 @@ public class BookStoreTests {
         String data = "{ \"userName\": \"Alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
 
-
         given()
-                .filters(withCustomTemplates())//это лог именно в алюр отчет
+                .filter(withCustomTemplates())//это лог именно в алюр отчет
                 .body(data)
                 .contentType(JSON)
                 .log().uri()//эти логи обеспечивают логирование к консоль
@@ -210,7 +208,7 @@ public class BookStoreTests {
 
         GenerateTokenResponseLombok tokenResponse =
                 given()
-                        .filters(withCustomTemplates())//это лог именно в алюр отчет
+                        .filter(withCustomTemplates())//это лог именно в алюр отчет
                         .body(credentials)
                         .contentType(JSON)
                         .log().uri()//эти логи обеспечивают логирование к консоль

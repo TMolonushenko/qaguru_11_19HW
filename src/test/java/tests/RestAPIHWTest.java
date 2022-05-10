@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static listener.CustomAllureListener.withCustomTemplates;
 import static org.hamcrest.Matchers.*;
 
 public class RestAPIHWTest {
@@ -13,6 +14,7 @@ public class RestAPIHWTest {
     void singleUserTest() {
 
         given()
+                .filter(withCustomTemplates())
                 .when()
                 .contentType(JSON)
                 .get("https://reqres.in/api/users/2")
@@ -24,6 +26,7 @@ public class RestAPIHWTest {
     @Test
     void singleUserNotFoundTest() {
         given()
+                .filter(withCustomTemplates())
                 .get("https://reqres.in/api/users/23")
                 .then()
                 .statusCode(404);
@@ -32,6 +35,7 @@ public class RestAPIHWTest {
     @Test
     void listTest() {
         given()
+                .filter(withCustomTemplates())
                 .param("id", 2)
                 .get("https://reqres.in/api/unknown")
                 .then()
@@ -46,6 +50,7 @@ public class RestAPIHWTest {
                 "}";
 
         given()
+                .filter(withCustomTemplates())
                 .body(authDataCreate)
                 .contentType(JSON)
                 .when()
@@ -62,6 +67,7 @@ public class RestAPIHWTest {
                 "    \"job\": \"zion resident\"\n" +
                 "}";
         given()
+                .filter(withCustomTemplates())
                 .body(upData)
                 .param("name", "morpheus")
                 .param("job", "zion resident")
@@ -78,6 +84,7 @@ public class RestAPIHWTest {
     @Test
     void deleteTest() {
         given()
+                .filter(withCustomTemplates())
                 .when()
                 .delete("https://reqres.in/api/users/2")
                 .then()
@@ -94,6 +101,7 @@ public class RestAPIHWTest {
                 "}";
 
         given()
+                .filter(withCustomTemplates())
                 .body(inputData)
                 .contentType(JSON)
                 .when()

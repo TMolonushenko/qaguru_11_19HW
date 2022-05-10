@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static listener.CustomAllureListener.withCustomTemplates;
 import static org.hamcrest.Matchers.is;
 
 public class ReqresinTest {
@@ -27,6 +28,7 @@ public class ReqresinTest {
                 "\"password\": \"cityslicka\"}";
 
         given()
+                .filter(withCustomTemplates())
                 .body(authorizedData)
                 .contentType(JSON)
                 .when()
@@ -53,6 +55,7 @@ public class ReqresinTest {
         String authorizedData = "{\"email\": \"eve.holt@reqres.in\"}";
 
         given()
+                .filter(withCustomTemplates())
                 .body(authorizedData)
                 .contentType(JSON)
                 .when()

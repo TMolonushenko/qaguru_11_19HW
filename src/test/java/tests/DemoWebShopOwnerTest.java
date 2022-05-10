@@ -25,7 +25,7 @@ public class DemoWebShopOwnerTest  {
 
         WishListModel wishListModel =
                 given()
-                        .filters(withCustomTemplates())
+                        .filter(withCustomTemplates())
                         .spec(requestD)
                         .body("addtocart_18.EnteredQuantity=1&addtocart_19.EnteredQuantity=1")
                         .when()
@@ -48,7 +48,7 @@ public class DemoWebShopOwnerTest  {
 
         String authorizationCookie =
                 given()
-                        .filters(withCustomTemplates())
+                        .filter(withCustomTemplates())
                         .formParam("Email", Data.config.email())
                         .formParam("Password", Data.config.password())
                         .spec(requestD)
