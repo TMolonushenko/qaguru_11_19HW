@@ -180,7 +180,7 @@ public class BookStoreTests {
 
         GenerateTokenResponse tokenResponse =
                 given()
-                        .filters(withCustomTemplates())//это лог именно в алюр отчет
+                        .filter(withCustomTemplates())//это лог именно в алюр отчет
                         .body(credentials)
                         .contentType(JSON)
                         .log().uri()//эти логи обеспечивают логирование к консоль

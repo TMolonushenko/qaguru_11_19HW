@@ -1,11 +1,15 @@
 package models;
 
+import config.AuthConfig;
+import org.aeonbits.owner.ConfigFactory;
+
 public class Credentials {
+
     /*{
         "userName": "Alex",
             "password": "asdsad#frew_DFS2"
     }*/
-    private String userName;
+   private String userName;
     private String password;
 
 

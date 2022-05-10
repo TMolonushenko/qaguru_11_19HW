@@ -1,6 +1,7 @@
 package tests;
 
-import config.APIConfig;
+import config.Data;
+import models.Credentials;
 import models.WishListModel;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
@@ -44,13 +45,12 @@ public class DemoWebShopOwnerTest  {
     @Test
     void authorizationOwnerTest() {
 
-        APIConfig apiConfig = ConfigFactory.create(APIConfig.class, System.getProperties());
 
         String authorizationCookie =
                 given()
                         .filters(withCustomTemplates())
-                        .formParam("Email", apiConfig.getEmail())
-                        .formParam("Password", apiConfig.getPassword())
+                        .formParam("Email", Data.config.email())
+                        .formParam("Password", Data.config.password())
                         .spec(requestD)
                         .when()
                         .post("login")
