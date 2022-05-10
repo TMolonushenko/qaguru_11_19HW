@@ -57,7 +57,7 @@ public class DemoWebShopOwnerTest  {
                         .then()
                         .log().status()
                         .log().body()
-                        .statusCode(302)
+                        .statusCode(200)
                         .extract().cookie("NOPCOMMERCE.AUTH");
 
         open("http://demowebshop.tricentis.com/customer/info"); // открываем сайт для установки куки
