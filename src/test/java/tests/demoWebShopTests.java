@@ -55,7 +55,7 @@ public class demoWebShopTests {
                         .log().all()
                         .statusCode(200)
                         .body("success", is(true))
-                        .body("message", is("The product has been added to your  " +
+                        .body("message", is("The product has been added to your " +
                                 "<a href=\"/cart\">shopping cart</a>"));
 
         //      assertThat(response.extract().path("updatetopcartsectionhtml").toString())

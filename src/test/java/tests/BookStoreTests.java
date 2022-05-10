@@ -108,7 +108,7 @@ public class BookStoreTests {
         // RestAssured.filters(new AllureRestAssured()); //можно перенести в @BeforeAll
 
         given()
-                .filters(new AllureRestAssured())//это лог именно в алюр отчет
+                .filter(new AllureRestAssured())//это лог именно в алюр отчет
                 .body(data)
                 .contentType(JSON)
                 .log().uri()//эти логи обеспечивают логирование к консоль
