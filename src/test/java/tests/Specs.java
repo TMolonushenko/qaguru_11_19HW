@@ -8,14 +8,16 @@ import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
 public class Specs {
-
     public static RequestSpecification request =
             with()
-                    .baseUri("http://demowebshop.tricentis.com/")
+                    .baseUri("https://reqres.in")
+                    .basePath("/api")
                     .log().all()
-                    .contentType("application/x-www-form-urlencoded; charset=UTF-8");
+                    .contentType(JSON);
 
     public static ResponseSpecification responseSpec = new ResponseSpecBuilder()
-            // .expectBody(containsString("success"))
+            .expectStatusCode(200)
+           // .expectBody(containsString("success"))
             .build();
+
 }
